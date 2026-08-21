@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Nos Secteurs — SoppalDigital</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0F2044;--blue:#3D6FE8;--gold:#F4C542;--coral:#E85D3C;--light:#F0F5FF;--lighter:#E8EFFE;--dark:#080E1E;--text:#0F2044;--muted:#4A5568;--subtle:#94A3B8;--border:#CBD8F5}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--text);background:#fff;overflow-x:hidden}
+header{position:sticky;top:0;z-index:200;background:rgba(15,32,68,0.97);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,0.07)}
+.nav{max-width:1100px;margin:0 auto;padding:0 32px;height:66px;display:flex;align-items:center}
+.nav-links{display:flex;gap:28px;margin-left:auto}
+.nav-links a{color:rgba(255,255,255,0.6);font-size:14px;font-weight:500;text-decoration:none;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:#fff}
+.nav-cta{margin-left:24px;background:var(--gold);color:var(--navy);font-size:13px;font-weight:700;padding:9px 20px;border-radius:8px;text-decoration:none}
+
+/* HERO */
+.hero{background:var(--navy);padding:90px 32px 80px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-100px;right:-100px;width:500px;height:500px;border:1.5px solid rgba(61,111,232,0.15);border-radius:50%}
+.hero::after{content:'';position:absolute;top:-20px;right:-20px;width:300px;height:300px;border:1.5px solid rgba(61,111,232,0.1);border-radius:50%}
+.hero-inner{max-width:1100px;margin:0 auto;position:relative;z-index:1}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(61,111,232,0.15);border:1px solid rgba(61,111,232,0.3);color:#7CA8FF;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:6px 16px;border-radius:20px;margin-bottom:28px}
+.hero h1{font-size:52px;font-weight:900;color:#fff;line-height:1.06;margin-bottom:20px;max-width:680px;letter-spacing:-.01em}
+.hero h1 em{color:var(--gold);font-style:normal}
+.hero-sub{font-size:17px;color:rgba(255,255,255,0.58);line-height:1.75;max-width:580px;margin-bottom:40px}
+.hero-sectors-nav{display:flex;gap:10px;flex-wrap:wrap}
+.snav{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.14);color:rgba(255,255,255,0.75);font-size:13px;font-weight:500;padding:9px 18px;border-radius:10px;text-decoration:none;transition:all .2s}
+.snav:hover{background:rgba(61,111,232,0.25);border-color:rgba(61,111,232,0.5);color:#fff}
+.snav-icon{font-size:16px}
+
+.divider{height:5px;background:linear-gradient(90deg,var(--gold),var(--blue),var(--navy))}
+.pattern{height:5px;background:repeating-linear-gradient(90deg,var(--gold) 0,var(--gold) 6px,var(--blue) 6px,var(--blue) 12px,var(--navy) 12px,var(--navy) 18px)}
+
+/* INTRO GLOBALE */
+.intro{background:var(--lighter);padding:56px 32px}
+.intro-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:14px}
+.intro-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center;transition:transform .2s}
+.intro-card:hover{transform:translateY(-3px)}
+.intro-icon{font-size:32px;margin-bottom:10px}
+.intro-name{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:6px}
+.intro-count{font-size:11px;color:var(--muted)}
+
+/* SECTEUR DETAIL */
+.sector-section{padding:80px 32px;border-top:1px solid var(--border)}
+.sector-section:nth-child(even){background:var(--lighter)}
+.ss-inner{max-width:1100px;margin:0 auto}
+.ss-header{display:grid;grid-template-columns:auto 1fr auto;gap:20px;align-items:center;margin-bottom:48px;padding-bottom:28px;border-bottom:1px solid var(--border)}
+.ss-icon-big{width:72px;height:72px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:36px;flex-shrink:0}
+.ss-meta{}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--blue);margin-bottom:6px}
+.ss-title{font-size:30px;font-weight:900;color:var(--navy);line-height:1.15}
+.ss-badge{font-size:12px;font-weight:600;padding:6px 16px;border-radius:20px;white-space:nowrap}
+.ss-body{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.ss-desc{font-size:15px;color:var(--muted);line-height:1.78;margin-bottom:24px}
+.problems-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--subtle);margin-bottom:12px}
+.problems-list{display:flex;flex-direction:column;gap:8px;margin-bottom:28px}
+.problem{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--text);line-height:1.5}
+.problem-icon{font-size:12px;margin-top:3px;flex-shrink:0}
+.solutions-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.sol-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px;border-left:3px solid var(--sol-color)}
+.sol-icon{font-size:18px;margin-bottom:6px}
+.sol-name{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:4px}
+.sol-desc{font-size:11px;color:var(--muted);line-height:1.5}
+.ss-cta-area{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;font-size:14px;font-weight:600;padding:12px 24px;border-radius:9px;text-decoration:none;transition:background .2s}
+.btn-primary:hover{background:var(--blue)}
+.btn-secondary{display:inline-flex;align-items:center;gap:8px;border:1.5px solid var(--border);color:var(--navy);font-size:14px;font-weight:600;padding:12px 22px;border-radius:9px;text-decoration:none;transition:all .2s}
+.btn-secondary:hover{border-color:var(--navy);background:var(--lighter)}
+.use-cases{display:flex;flex-direction:column;gap:12px}
+.use-case{background:#fff;border:1px solid var(--border);border-radius:12px;padding:18px;display:flex;gap:14px}
+.uc-num{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;flex-shrink:0}
+.uc-title{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:4px}
+.uc-desc{font-size:12px;color:var(--muted);line-height:1.5}
+.uc-tag{display:inline-block;margin-top:6px;font-size:10px;font-weight:600;padding:2px 8px;border-radius:6px}
+
+/* DÉFIS COMMUNS */
+.defis{background:var(--navy);padding:72px 32px}
+.defis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:1100px;margin:24px auto 0}
+.defi-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:22px}
+.defi-icon{font-size:24px;margin-bottom:10px}
+.defi-title{font-size:14px;font-weight:700;color:#fff;margin-bottom:7px}
+.defi-desc{font-size:12px;color:rgba(255,255,255,0.45);line-height:1.6}
+
+/* CTA */
+.cta-section{background:var(--light);padding:72px 32px}
+.cta-box{max-width:780px;margin:0 auto;background:var(--navy);border-radius:20px;padding:52px 44px;text-align:center;position:relative;overflow:hidden}
+.cta-box::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border:1.5px solid rgba(61,111,232,0.2);border-radius:50%}
+.cta-box h2{font-size:32px;font-weight:900;color:#fff;margin-bottom:12px;position:relative;z-index:1}
+.cta-box h2 span{color:var(--gold)}
+.cta-box p{font-size:15px;color:rgba(255,255,255,0.5);margin-bottom:28px;line-height:1.7;position:relative;z-index:1}
+.cta-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1;margin-bottom:22px}
+.cta-btn1{background:var(--gold);color:var(--navy);font-size:14px;font-weight:700;padding:13px 26px;border-radius:9px;text-decoration:none}
+.cta-btn2{background:rgba(255,255,255,0.08);color:#fff;font-size:14px;font-weight:600;padding:13px 24px;border-radius:9px;border:1px solid rgba(255,255,255,0.18);text-decoration:none}
+.cta-contacts{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
+.cta-c{font-size:12px;color:rgba(255,255,255,0.4)}
+.cta-c strong{color:var(--gold)}
+
+footer{background:var(--dark);padding:44px 32px 24px}
+.footer-inner{max-width:1100px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:36px;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,0.07)}
+.footer-brand p{font-size:13px;color:rgba(255,255,255,.3);line-height:1.7;margin-top:14px;max-width:260px}
+.footer-col h4{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:rgba(255,255,255,.22);margin-bottom:14px}
+.footer-col a{display:block;font-size:13px;color:rgba(255,255,255,.38);text-decoration:none;margin-bottom:8px;transition:color .2s}
+.footer-col a:hover{color:#fff}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center}
+.footer-copy{font-size:12px;color:rgba(255,255,255,.17)}
+.footer-rs{display:flex;gap:8px}
+.rs{width:30px;height:30px;background:rgba(255,255,255,.05);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;color:rgba(255,255,255,.3);text-decoration:none;font-weight:600;transition:all .2s}
+.rs:hover{background:var(--blue);color:#fff}
+.wa{position:fixed;bottom:28px;right:28px;width:54px;height:54px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 18px rgba(37,211,102,.4);z-index:300;transition:transform .2s}
+.wa:hover{transform:scale(1.08)}
+.wa svg{width:28px;height:28px;fill:#fff}
+</style>
+</head>
+<body>
+
+<a class="wa" href="https://wa.me/221772213677" target="_blank">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<header>
+  <nav class="nav">
+    <svg width="148" height="34" viewBox="0 0 220 52" xmlns="http://www.w3.org/2000/svg">
+      <path d="M44,6 C44,6 10,6 10,20 C10,34 46,34 46,48 C46,48 12,48 12,43" stroke="#F4C542" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <polyline points="5,38 12,50 19,38" stroke="#F4C542" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="44" cy="6" r="5.5" fill="#E85D3C"/>
+      <line x1="60" y1="8" x2="60" y2="44" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/>
+      <text x="72" y="26" fill="white" font-family="Inter,sans-serif" font-size="20" font-weight="900" letter-spacing="1">SOPPAL</text>
+      <line x1="72" y1="32" x2="218" y2="32" stroke="#F4C542" stroke-width="1.5"/>
+      <text x="73" y="46" fill="#F4C542" font-family="Inter,sans-serif" font-size="10" font-weight="300" letter-spacing="6">digital</text>
+    </svg>
+    <div class="nav-links"><a href="index.html">Accueil</a><a href="soppaldigital-page-services.html">Services</a><a href="soppaldigital-secteurs.html" class="active">Secteurs</a><a href="soppaldigital-realisations.html">Nos solutions</a><a href="soppaldigital-a-propos.html">À propos</a><a href="soppaldigital-contact.html">Contact</a></div>
+    <a href="soppaldigital-contact.html" class="nav-cta">Diagnostic gratuit</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">🏢 Nos secteurs d'intervention</div>
+    <h1>Votre secteur a ses propres défis. <em>Nous les connaissons.</em></h1>
+    <p class="hero-sub">Chaque domaine a ses contraintes, ses réglementations et ses usages. Nous ne proposons pas de solutions génériques — nous adaptons chaque intervention à la réalité de votre secteur.</p>
+    <div class="hero-sectors-nav">
+      <a href="#academique" class="snav"><span class="snav-icon">🏫</span>Académique</a>
+      <a href="#medical" class="snav"><span class="snav-icon">🏥</span>Médical</a>
+      <a href="#entreprises" class="snav"><span class="snav-icon">🏢</span>Entreprises & ONG</a>
+      <a href="#startups" class="snav"><span class="snav-icon">🚀</span>Porteurs de projets</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- INTRO -->
+<section class="intro">
+  <div class="intro-inner">
+    <div class="intro-card">
+      <div class="intro-icon">🏫</div>
+      <div class="intro-name">Institutions académiques</div>
+      <div class="intro-count">Écoles · Universités · Centres de formation</div>
+    </div>
+    <div class="intro-card">
+      <div class="intro-icon">🏥</div>
+      <div class="intro-name">Institutions médicales</div>
+      <div class="intro-count">Cliniques · Cabinets · Pharmacies</div>
+    </div>
+    <div class="intro-card">
+      <div class="intro-icon">🏢</div>
+      <div class="intro-name">Entreprises & ONG</div>
+      <div class="intro-count">PME · Commerces · Associations</div>
+    </div>
+    <div class="intro-card">
+      <div class="intro-icon">🚀</div>
+      <div class="intro-name">Porteurs de projets</div>
+      <div class="intro-count">Startups · Entrepreneurs · Innovateurs</div>
+    </div>
+  </div>
+</section>
+
+<!-- ACADÉMIQUE -->
+<section class="sector-section" id="academique">
+  <div class="ss-inner">
+    <div class="ss-header">
+      <div class="ss-icon-big" style="background:rgba(61,111,232,0.12);">🏫</div>
+      <div class="ss-meta">
+        <div class="eyebrow">Secteur 01</div>
+        <div class="ss-title">Institutions académiques</div>
+      </div>
+      <span class="ss-badge" style="background:rgba(61,111,232,0.1);color:var(--blue);border:1px solid rgba(61,111,232,0.25)">Écoles · Universités · Formations</span>
+    </div>
+    <div class="ss-body">
+      <div>
+        <p class="ss-desc">Les institutions académiques gèrent des centaines — parfois des milliers — d'apprenants avec des outils souvent inadaptés. Registres papier, Excel partagés par WhatsApp, paiements en espèces non tracés… Ces pratiques coûtent du temps, génèrent des erreurs et nuisent à l'image de l'établissement.</p>
+        <div class="problems-title">Problèmes que nous résolvons</div>
+        <div class="problems-list">
+          <div class="problem"><span class="problem-icon">⚠️</span>Gestion des inscriptions manuelle, sujette aux erreurs</div>
+          <div class="problem"><span class="problem-icon">⚠️</span>Bulletins produits à la main, longs à éditer et à distribuer</div>
+          <div class="problem"><span class="problem-icon">⚠️</span>Paiements des frais de scolarité non centralisés</div>
+          <div class="problem"><span class="problem-icon">⚠️</span>Absence de site web professionnel pour attirer de nouveaux élèves</div>
+          <div class="problem"><span class="problem-icon">⚠️</span>Communication avec les parents difficile et non structurée</div>
+        </div>
+        <div class="ss-cta-area">
+          <a href="soppaldigital-contact.html" class="btn-primary">Digitaliser mon école →</a>
+          <a href="soppaldigital-page-services.html" class="btn-secondary">Voir nos services →</a>
+        </div>
+      </div>
+      <div>
+        <div class="problems-title" style="margin-bottom:12px">Nos solutions pour ce secteur</div>
+        <div class="use-cases">
+          <div class="use-case">
+            <div class="uc-num" style="background:rgba(61,111,232,0.12);color:var(--blue)">01</div>
+            <div><div class="uc-title">Portail de gestion des élèves</div><div class="uc-desc">Inscriptions en ligne, suivi des présences, gestion des notes, bulletins auto-générés et communication parents-école.</div><span class="uc-tag" style="background:rgba(61,111,232,0.1);color:var(--blue)">Application web</span></div>
+          </div>
+          <div class="use-case">
+            <div class="uc-num" style="background:rgba(61,111,232,0.12);color:var(--blue)">02</div>
+            <div><div class="uc-title">Site web institutionnel</div><div class="uc-desc">Présentation de l'établissement, offres de formation, actualités, formulaires de candidature et intégration réseaux sociaux.</div><span class="uc-tag" style="background:rgba(61,111,232,0.1);color:var(--blue)">Site web + SEO</span></div>
+          </div>
+          <div class="use-case">
+            <div class="uc-num" style="background:rgba(61,111,232,0.12);color:var(--blue)">03</div>
+            <div><div class="uc-title">Gestion des paiements de scolarité</div><div class="uc-desc">Suivi des paiements, relances automatiques, reçus digitaux — compatible Wave et Orange Money.</div><span class="uc-tag" style="background:rgba(61,111,232,0.1);color:var(--blue)">Système SI</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MÉDICAL -->
+<section class="sector-section" id="medical">
+  <div class="ss-inner">
+    <div class="ss-header">
+      <div class="ss-icon-big" style="background:rgba(232,93,60,0.12);">🏥</div>
+      <div class="ss-meta">
+        <div class="eyebrow">Secteur 02</div>
+        <div class="ss-title">Institutions médicales</div>
+      </div>
+      <span class="ss-badge" style="background:rgba(232,93,60,0.1);color:var(--coral);border:1px solid rgba(232,93,60,0.25)">Cliniques · Cabinets · Pharmacies</span>
+    </div>
+    <div class="ss-body">
+      <div>
+        <p class="ss-desc">Dans le secteur médical, la digitalisation améliore directement la qualité des soins. Dossiers patients accessibles rapidement, rendez-vous en ligne pour réduire les files d'attente, suivi des prescriptions — des outils modernes qui bénéficient autant aux soignants qu'aux patients.</p>
+        <div class="problems-title">Problèmes que nous résolvons</div>
+        <div class="problems-list">
+          <div class="problem"><span class="problem-icon">⚠️</span>Dossiers patients en papier, difficiles à retrouver et à partager</div>
+          <div class="problem"><span class="problem-icon">⚠️</span>Prise de rendez-vous uniquement par téléphone — files d'attente</div>
+          <div class="problem"><span class="problem-icon">⚠️</span>Gestion de la caisse et des paiements non centralisée</div>
+          <div class="problem"><span class="problem-icon">⚠️</span>Absence de site web pour être trouvé sur Google</div>
+          <div class="problem"><span class="problem-icon">⚠️</span>Stocks de médicaments gérés manuellement (pharmacies)</div>
+        </div>
+        <div class="ss-cta-area">
+          <a href="soppaldigital-contact.html" class="btn-primary" style="background:var(--coral)">Digitaliser ma structure →</a>
+          <a href="soppaldigital-page-services.html" class="btn-secondary">Voir nos services →</a>
+        </div>
+      </div>
+      <div>
+        <div class="problems-title" style="margin-bottom:12px">Nos solutions pour ce secteur</div>
+        <div class="use-cases">
+          <div class="use-case">
+            <div class="uc-num" style="background:rgba(232,93,60,0.1);color:var(--coral)">01</div>
+            <div><div class="uc-title">Gestion des dossiers patients</div><div class="uc-desc">Dossiers médicaux digitalisés, historique des consultations, prescriptions, résultats d'analyses — sécurisés et accessibles.</div><span class="uc-tag" style="background:rgba(232,93,60,0.1);color:var(--coral)">Application web</span></div>
+          </div>
+          <div class="use-case">
+            <div class="uc-num" style="background:rgba(232,93,60,0.1);color:var(--coral)">02</div>
+            <div><div class="uc-title">Prise de rendez-vous en ligne</div><div class="uc-desc">Agenda en ligne avec confirmation automatique par SMS/WhatsApp, réduction des files d'attente et des no-shows.</div><span class="uc-tag" style="background:rgba(232,93,60,0.1);color:var(--coral)">Site web + Application</span></div>
+          </div>
+          <div class="use-case">
+            <div class="uc-num" style="background:rgba(232,93,60,0.1);color:var(--coral)">03</div>
+            <div><div class="uc-title">Caisse & gestion des stocks</div><div class="uc-desc">Suivi des encaissements, paiement Wave / Orange Money, gestion des stocks de médicaments avec alertes de réapprovisionnement.</div><span class="uc-tag" style="background:rgba(232,93,60,0.1);color:var(--coral)">Système SI</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ENTREPRISES -->
+<section class="sector-section" id="entreprises">
+  <div class="ss-inner">
+    <div class="ss-header">
+      <div class="ss-icon-big" style="background:rgba(244,197,66,0.12);">🏢</div>
+      <div class="ss-meta">
+        <div class="eyebrow">Secteur 03</div>
+        <div class="ss-title">Entreprises & ONG</div>
+      </div>
+      <span class="ss-badge" style="background:rgba(244,197,66,0.1);color:#8B6914;border:1px solid rgba(244,197,66,0.3)">PME · Commerces · Associations</span>
+    </div>
+    <div class="ss-body">
+      <div>
+        <p class="ss-desc">Que vous soyez une PME, un commerce de détail ou une ONG, votre présence digitale est aujourd'hui un facteur de compétitivité. Vos concurrents sont en ligne — vos clients aussi. Nous vous aidons à construire et gérer votre présence digitale sans vous ruiner.</p>
+        <div class="problems-title">Problèmes que nous résolvons</div>
+        <div class="problems-list">
+          <div class="problem"><span class="problem-icon">⚠️</span>Absence de site web professionnel — clients perdus sur Google</div>
+          <div class="problem"><span class="problem-icon">⚠️</span>Ventes uniquement physiques — manque de canal digital</div>
+          <div class="problem"><span class="problem-icon">⚠️</span>Gestion des stocks et de la clientèle manuelle</div>
+          <div class="problem"><span class="problem-icon">⚠️</span>Communication digitale inexistante ou inefficace</div>
+          <div class="problem"><span class="problem-icon">⚠️</span>Rapports et bilans produits à la main, chronophages</div>
+        </div>
+        <div class="ss-cta-area">
+          <a href="soppaldigital-contact.html" class="btn-primary" style="background:#8B6914">Digitaliser mon activité →</a>
+          <a href="soppaldigital-page-services.html" class="btn-secondary">Voir nos services →</a>
+        </div>
+      </div>
+      <div>
+        <div class="problems-title" style="margin-bottom:12px">Nos solutions pour ce secteur</div>
+        <div class="use-cases">
+          <div class="use-case">
+            <div class="uc-num" style="background:rgba(244,197,66,0.12);color:#8B6914">01</div>
+            <div><div class="uc-title">Site vitrine & e-commerce</div><div class="uc-desc">Présence en ligne professionnelle avec catalogue produits, paiement Wave / Orange Money et gestion des commandes.</div><span class="uc-tag" style="background:rgba(244,197,66,0.1);color:#8B6914">Site web + E-commerce</span></div>
+          </div>
+          <div class="use-case">
+            <div class="uc-num" style="background:rgba(244,197,66,0.12);color:#8B6914">02</div>
+            <div><div class="uc-title">Gestion interne & CRM</div><div class="uc-desc">Suivi clients, gestion des stocks, facturation digitale, tableaux de bord pour piloter votre activité en temps réel.</div><span class="uc-tag" style="background:rgba(244,197,66,0.1);color:#8B6914">Système SI</span></div>
+          </div>
+          <div class="use-case">
+            <div class="uc-num" style="background:rgba(244,197,66,0.12);color:#8B6914">03</div>
+            <div><div class="uc-title">Visibilité SEO locale</div><div class="uc-desc">Optimisation Google pour être trouvé par vos clients à Dakar et au Sénégal — plus de trafic, plus de ventes.</div><span class="uc-tag" style="background:rgba(244,197,66,0.1);color:#8B6914">SEO + Contenu</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STARTUPS -->
+<section class="sector-section" id="startups">
+  <div class="ss-inner">
+    <div class="ss-header">
+      <div class="ss-icon-big" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);">🚀</div>
+      <div class="ss-meta">
+        <div class="eyebrow">Secteur 04</div>
+        <div class="ss-title">Porteurs de projets & startups</div>
+      </div>
+      <span class="ss-badge" style="background:var(--lighter);color:var(--navy);border:1px solid var(--border)">Startups · Entrepreneurs · Innovateurs</span>
+    </div>
+    <div class="ss-body">
+      <div>
+        <p class="ss-desc">Vous avez une idée, une vision — mais transformer une idée en produit digital fonctionnel est un défi technique et stratégique. Nous vous accompagnons de la validation du concept jusqu'à la mise en ligne, en passant par le design, le développement et le lancement.</p>
+        <div class="problems-title">Problèmes que nous résolvons</div>
+        <div class="problems-list">
+          <div class="problem"><span class="problem-icon">⚠️</span>Idée sans prototype — difficulté à convaincre investisseurs et partenaires</div>
+          <div class="problem"><span class="problem-icon">⚠️</span>Budget limité — besoin d'un MVP fonctionnel rapidement</div>
+          <div class="problem"><span class="problem-icon">⚠️</span>Pas de compétences techniques en interne</div>
+          <div class="problem"><span class="problem-icon">⚠️</span>Besoin d'aller vite pour tester le marché</div>
+          <div class="problem"><span class="problem-icon">⚠️</span>Accompagnement post-lancement insuffisant</div>
+        </div>
+        <div class="ss-cta-area">
+          <a href="soppaldigital-contact.html" class="btn-primary">Lancer mon projet →</a>
+          <a href="soppaldigital-page-services.html" class="btn-secondary">Voir nos services →</a>
+        </div>
+      </div>
+      <div>
+        <div class="problems-title" style="margin-bottom:12px">Nos solutions pour ce secteur</div>
+        <div class="use-cases">
+          <div class="use-case">
+            <div class="uc-num" style="background:var(--lighter);color:var(--navy)">01</div>
+            <div><div class="uc-title">MVP & prototype</div><div class="uc-desc">Développement rapide d'un produit minimum viable pour tester votre concept sur le marché avant d'investir davantage.</div><span class="uc-tag" style="background:var(--lighter);color:var(--navy)">Application web / mobile</span></div>
+          </div>
+          <div class="use-case">
+            <div class="uc-num" style="background:var(--lighter);color:var(--navy)">02</div>
+            <div><div class="uc-title">Landing page & acquisition</div><div class="uc-desc">Page de lancement optimisée pour capturer des leads, valider votre concept et commencer à construire votre audience.</div><span class="uc-tag" style="background:var(--lighter);color:var(--navy)">Site web + SEO</span></div>
+          </div>
+          <div class="use-case">
+            <div class="uc-num" style="background:var(--lighter);color:var(--navy)">03</div>
+            <div><div class="uc-title">Accompagnement croissance</div><div class="uc-desc">Évolutions produit, optimisation SEO, formation équipe, maintenance et support technique après le lancement.</div><span class="uc-tag" style="background:var(--lighter);color:var(--navy)">Formation + Suivi</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="pattern"></div>
+
+<!-- DÉFIS COMMUNS -->
+<section class="defis">
+  <div style="max-width:1100px;margin:0 auto">
+    <div class="eyebrow" style="color:var(--gold);text-align:center">Ce que nous voyons partout</div>
+    <h2 style="font-size:32px;font-weight:900;color:#fff;text-align:center;margin-bottom:8px;line-height:1.2">Trois défis universels, quel que soit votre secteur</h2>
+    <p style="font-size:15px;color:rgba(255,255,255,0.45);text-align:center;margin-bottom:0;max-width:560px;margin:0 auto">Des organisations différentes, mais des problèmes qui reviennent toujours.</p>
+    <div class="defis-grid">
+      <div class="defi-card">
+        <div class="defi-icon">📄</div>
+        <div class="defi-title">Le piège du papier et d'Excel</div>
+        <div class="defi-desc">Registres, classeurs, fichiers partagés sur WhatsApp — des outils qui brisent l'information, créent des erreurs et font perdre un temps précieux à vos équipes.</div>
+      </div>
+      <div class="defi-card">
+        <div class="defi-icon">👁️</div>
+        <div class="defi-title">L'invisibilité en ligne</div>
+        <div class="defi-desc">Sans site web ou présence digitale, vous perdez des clients chaque jour. Vos concurrents moins qualifiés mais plus visibles sur Google vous devancent systématiquement.</div>
+      </div>
+      <div class="defi-card">
+        <div class="defi-icon">💸</div>
+        <div class="defi-title">Les paiements non tracés</div>
+        <div class="defi-desc">Espèces non enregistrées, reçus papier perdus, suivi de trésorerie impossible — une gestion financière archaïque qui fragilise votre organisation.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="diagnostic">
+  <div class="cta-box">
+    <h2>Votre secteur, <span>notre expertise</span></h2>
+    <p>Quel que soit votre domaine d'activité, commençons par un diagnostic gratuit pour identifier ensemble ce qui peut être amélioré.</p>
+    <div class="cta-btns">
+      <a href="soppaldigital-contact.html" class="cta-btn1">Demander mon diagnostic gratuit</a>
+      <a href="soppaldigital-page-services.html" class="cta-btn2">Voir nos services</a>
+    </div>
+    <div class="cta-contacts">
+      <span class="cta-c">📞 <strong>77 221 36 77</strong></span>
+      <span class="cta-c">✉️ <strong>s.dia1317@gmail.com</strong></span>
+      <span class="cta-c">🌐 <strong>soppaldigital.sn</strong></span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <svg width="140" height="32" viewBox="0 0 220 52" xmlns="http://www.w3.org/2000/svg">
+          <path d="M44,6 C44,6 10,6 10,20 C10,34 46,34 46,48 C46,48 12,48 12,43" stroke="#F4C542" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <polyline points="5,38 12,50 19,38" stroke="#F4C542" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="44" cy="6" r="5.5" fill="#E85D3C"/>
+          <line x1="60" y1="8" x2="60" y2="44" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/>
+          <text x="72" y="26" fill="white" font-family="Inter,sans-serif" font-size="20" font-weight="900" letter-spacing="1">SOPPAL</text>
+          <line x1="72" y1="32" x2="218" y2="32" stroke="#F4C542" stroke-width="1.5"/>
+          <text x="73" y="46" fill="#F4C542" font-family="Inter,sans-serif" font-size="10" font-weight="300" letter-spacing="6">digital</text>
+        </svg>
+        <p>Transformation digitale pour institutions et entreprises au Sénégal.</p>
+      </div>
+      <div class="footer-col"><h4>Services</h4><a href="soppaldigital-page-services.html#sites-web">Sites web</a><a href="soppaldigital-page-services.html#systemes-si">Systèmes SI</a><a href="soppaldigital-page-services.html#applications">Applications</a><a href="soppaldigital-page-services.html#ecommerce">E-commerce</a><a href="soppaldigital-page-services.html#seo">SEO</a></div>
+      <div class="footer-col"><h4>Secteurs</h4><a href="#academique">Académique</a><a href="#medical">Médical</a><a href="#entreprises">Entreprises</a><a href="#startups">Startups</a></div>
+      <div class="footer-col"><h4>Contact</h4><a href="tel:+221772213677">📞 77 221 36 77</a><a href="mailto:s.dia1317@gmail.com">✉️ s.dia1317@gmail.com</a><a href="#">📍 Dakar, Sénégal</a></div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 SoppalDigital · Dakar, Sénégal</div>
+      <div class="footer-rs"><a class="rs" href="#">in</a><a class="rs" href="#">𝕏</a><a class="rs" href="#">f</a><a class="rs" href="#">▶</a></div>
+    </div>
+  </div>
+</footer>
+<script>document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}});});</script>
+</body>
+</html>

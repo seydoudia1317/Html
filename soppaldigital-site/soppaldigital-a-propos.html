@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>À propos — SoppalDigital</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0F2044;--blue:#3D6FE8;--gold:#F4C542;--coral:#E85D3C;--light:#F0F5FF;--lighter:#E8EFFE;--dark:#080E1E;--text:#0F2044;--muted:#4A5568;--subtle:#94A3B8;--border:#CBD8F5}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--text);background:#fff;overflow-x:hidden}
+header{position:sticky;top:0;z-index:200;background:rgba(15,32,68,0.97);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,0.07)}
+.nav{max-width:1100px;margin:0 auto;padding:0 32px;height:66px;display:flex;align-items:center}
+.nav-links{display:flex;gap:28px;margin-left:auto}
+.nav-links a{color:rgba(255,255,255,0.6);font-size:14px;font-weight:500;text-decoration:none;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:#fff}
+.nav-cta{margin-left:24px;background:var(--gold);color:var(--navy);font-size:13px;font-weight:700;padding:9px 20px;border-radius:8px;text-decoration:none}
+
+/* HERO */
+.hero{background:var(--navy);padding:90px 32px 80px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-100px;right:-100px;width:520px;height:520px;border:1.5px solid rgba(61,111,232,0.14);border-radius:50%}
+.hero::after{content:'';position:absolute;top:-20px;right:-20px;width:340px;height:340px;border:1.5px solid rgba(61,111,232,0.09);border-radius:50%}
+.hero-inner{max-width:1100px;margin:0 auto;position:relative;z-index:1;display:grid;grid-template-columns:1fr auto;gap:60px;align-items:center}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(61,111,232,0.15);border:1px solid rgba(61,111,232,0.3);color:#7CA8FF;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:6px 16px;border-radius:20px;margin-bottom:28px}
+.hero h1{font-size:50px;font-weight:900;color:#fff;line-height:1.06;margin-bottom:20px;letter-spacing:-.015em}
+.hero h1 em{color:var(--gold);font-style:normal}
+.hero-sub{font-size:16px;color:rgba(255,255,255,0.56);line-height:1.78;max-width:520px}
+.hero-founder{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:24px;text-align:center;flex-shrink:0;width:220px}
+.founder-avatar{width:80px;height:80px;background:linear-gradient(135deg,var(--blue),var(--navy));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:900;color:var(--gold);margin:0 auto 14px;border:3px solid rgba(244,197,66,0.3)}
+.founder-name{font-size:15px;font-weight:700;color:#fff;margin-bottom:4px}
+.founder-role{font-size:12px;color:rgba(255,255,255,0.45);margin-bottom:12px}
+.founder-tag{display:inline-block;font-size:10px;font-weight:600;background:rgba(244,197,66,0.15);color:var(--gold);padding:4px 10px;border-radius:10px;border:1px solid rgba(244,197,66,0.3)}
+
+.divider{height:5px;background:linear-gradient(90deg,var(--gold),var(--blue),var(--navy))}
+.pattern{height:5px;background:repeating-linear-gradient(90deg,var(--gold) 0,var(--gold) 6px,var(--blue) 6px,var(--blue) 12px,var(--navy) 12px,var(--navy) 18px)}
+
+/* HISTOIRE */
+.histoire{padding:80px 32px;background:#fff}
+.histoire-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
+h2.stitle{font-size:34px;font-weight:900;color:var(--navy);line-height:1.12;margin-bottom:18px}
+.histoire-text p{font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:18px}
+.histoire-text strong{color:var(--navy)}
+.histoire-timeline{display:flex;flex-direction:column;gap:0}
+.tline-item{display:flex;gap:16px;padding-bottom:28px;position:relative}
+.tline-item:not(:last-child)::after{content:'';position:absolute;left:17px;top:36px;bottom:0;width:2px;background:var(--border)}
+.tline-dot{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;position:relative;z-index:1}
+.tline-content{}
+.tline-year{font-size:11px;font-weight:700;color:var(--subtle);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+.tline-title{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:4px}
+.tline-desc{font-size:13px;color:var(--muted);line-height:1.55}
+
+/* MISSION & VISION */
+.mv{background:var(--navy);padding:80px 32px}
+.mv-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.mv-card{border-radius:16px;padding:36px;position:relative;overflow:hidden}
+.mv-card::before{content:'';position:absolute;top:-40px;right:-40px;width:160px;height:160px;border-radius:50%}
+.mv-icon{font-size:36px;margin-bottom:18px;position:relative;z-index:1}
+.mv-label{font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;margin-bottom:10px;position:relative;z-index:1}
+.mv-title{font-size:22px;font-weight:800;margin-bottom:14px;line-height:1.25;position:relative;z-index:1}
+.mv-text{font-size:14px;line-height:1.75;position:relative;z-index:1}
+
+/* VALEURS */
+.valeurs{background:var(--lighter);padding:80px 32px}
+.valeurs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:1100px;margin:0 auto}
+.val-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:24px;position:relative;overflow:hidden}
+.val-card::after{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:var(--val-color)}
+.val-icon{font-size:28px;margin-bottom:14px}
+.val-title{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:8px}
+.val-desc{font-size:13px;color:var(--muted);line-height:1.65}
+.valeurs .stitle-wrap{max-width:1100px;margin:0 auto 44px}
+
+/* FONDATEUR */
+.fondateur{padding:80px 32px;background:#fff}
+.fond-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:380px 1fr;gap:64px;align-items:center}
+.fond-card{background:var(--navy);border-radius:20px;padding:40px;text-align:center;position:relative;overflow:hidden}
+.fond-card::before{content:'';position:absolute;top:-50px;right:-50px;width:200px;height:200px;border:1.5px solid rgba(61,111,232,0.2);border-radius:50%}
+.fond-avatar-lg{width:100px;height:100px;background:linear-gradient(135deg,var(--blue),var(--navy));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:36px;font-weight:900;color:var(--gold);margin:0 auto 20px;border:3px solid rgba(244,197,66,0.35);position:relative;z-index:1}
+.fond-name{font-size:20px;font-weight:800;color:#fff;margin-bottom:6px;position:relative;z-index:1}
+.fond-role{font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:20px;position:relative;z-index:1}
+.fond-tags{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;position:relative;z-index:1}
+.fond-tag{font-size:11px;font-weight:500;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.65);padding:4px 12px;border-radius:20px}
+.fond-contact{margin-top:20px;position:relative;z-index:1}
+.fond-contact a{display:block;font-size:12px;color:var(--gold);text-decoration:none;margin-bottom:4px}
+.fond-text .eyebrow{color:var(--coral)}
+.fond-text h2{font-size:32px;font-weight:900;color:var(--navy);line-height:1.15;margin-bottom:18px}
+.fond-text p{font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:16px}
+.fond-text strong{color:var(--navy)}
+.fond-quote{background:var(--lighter);border-left:3px solid var(--gold);border-radius:0 10px 10px 0;padding:16px 20px;margin-top:24px}
+.fond-quote p{font-size:15px;color:var(--navy);font-style:italic;line-height:1.7;margin:0}
+.fond-quote cite{display:block;font-size:12px;color:var(--subtle);margin-top:8px;font-style:normal}
+
+/* POURQUOI */
+.pourquoi{background:var(--lighter);padding:72px 32px}
+.pourquoi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:1100px;margin:36px auto 0}
+.p-item{background:#fff;border:1px solid var(--border);border-radius:12px;padding:22px}
+.p-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:14px}
+.p-title{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:7px}
+.p-desc{font-size:13px;color:var(--muted);line-height:1.6}
+
+/* CHIFFRES */
+.chiffres{background:var(--navy);padding:60px 32px}
+.chiffres-inner{max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.chiffre{text-align:center;padding:24px 16px;border-right:1px solid rgba(255,255,255,0.08)}
+.chiffre:last-child{border:none}
+.chiffre-num{font-size:40px;font-weight:900;color:var(--gold);margin-bottom:8px}
+.chiffre-label{font-size:12px;color:rgba(255,255,255,0.4);line-height:1.5}
+
+/* CTA */
+.cta-section{background:var(--light);padding:72px 32px}
+.cta-box{max-width:780px;margin:0 auto;background:var(--navy);border-radius:20px;padding:52px 44px;text-align:center;position:relative;overflow:hidden}
+.cta-box::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border:1.5px solid rgba(61,111,232,0.2);border-radius:50%}
+.cta-box h2{font-size:32px;font-weight:900;color:#fff;margin-bottom:12px;position:relative;z-index:1}
+.cta-box h2 span{color:var(--gold)}
+.cta-box p{font-size:15px;color:rgba(255,255,255,0.5);margin-bottom:28px;line-height:1.7;position:relative;z-index:1}
+.cta-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1;margin-bottom:22px}
+.cta-btn1{background:var(--gold);color:var(--navy);font-size:14px;font-weight:700;padding:13px 26px;border-radius:9px;text-decoration:none}
+.cta-btn2{background:rgba(255,255,255,0.08);color:#fff;font-size:14px;font-weight:600;padding:13px 24px;border-radius:9px;border:1px solid rgba(255,255,255,0.18);text-decoration:none}
+.cta-contacts{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
+.cta-c{font-size:12px;color:rgba(255,255,255,0.4)}
+.cta-c strong{color:var(--gold)}
+
+footer{background:var(--dark);padding:44px 32px 24px}
+.footer-inner{max-width:1100px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:36px;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,0.07)}
+.footer-brand p{font-size:13px;color:rgba(255,255,255,.3);line-height:1.7;margin-top:14px;max-width:260px}
+.footer-col h4{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:rgba(255,255,255,.22);margin-bottom:14px}
+.footer-col a{display:block;font-size:13px;color:rgba(255,255,255,.38);text-decoration:none;margin-bottom:8px;transition:color .2s}
+.footer-col a:hover{color:#fff}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center}
+.footer-copy{font-size:12px;color:rgba(255,255,255,.17)}
+.footer-rs{display:flex;gap:8px}
+.rs{width:30px;height:30px;background:rgba(255,255,255,.05);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;color:rgba(255,255,255,.3);text-decoration:none;font-weight:600;transition:all .2s}
+.rs:hover{background:var(--blue);color:#fff}
+.wa{position:fixed;bottom:28px;right:28px;width:54px;height:54px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 18px rgba(37,211,102,.4);z-index:300;transition:transform .2s}
+.wa:hover{transform:scale(1.08)}
+.wa svg{width:28px;height:28px;fill:#fff}
+</style>
+</head>
+<body>
+
+<a class="wa" href="https://wa.me/221772213677" target="_blank">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<header>
+  <nav class="nav">
+    <svg width="148" height="34" viewBox="0 0 220 52" xmlns="http://www.w3.org/2000/svg">
+      <path d="M44,6 C44,6 10,6 10,20 C10,34 46,34 46,48 C46,48 12,48 12,43" stroke="#F4C542" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <polyline points="5,38 12,50 19,38" stroke="#F4C542" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="44" cy="6" r="5.5" fill="#E85D3C"/>
+      <line x1="60" y1="8" x2="60" y2="44" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/>
+      <text x="72" y="26" fill="white" font-family="Inter,sans-serif" font-size="20" font-weight="900" letter-spacing="1">SOPPAL</text>
+      <line x1="72" y1="32" x2="218" y2="32" stroke="#F4C542" stroke-width="1.5"/>
+      <text x="73" y="46" fill="#F4C542" font-family="Inter,sans-serif" font-size="10" font-weight="300" letter-spacing="6">digital</text>
+    </svg>
+    <div class="nav-links"><a href="index.html">Accueil</a><a href="soppaldigital-page-services.html">Services</a><a href="soppaldigital-secteurs.html">Secteurs</a><a href="soppaldigital-realisations.html">Nos solutions</a><a href="soppaldigital-a-propos.html" class="active">À propos</a><a href="soppaldigital-contact.html">Contact</a></div>
+    <a href="soppaldigital-contact.html" class="nav-cta">Diagnostic gratuit</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge">👤 À propos de SoppalDigital</div>
+      <h1>Derrière chaque transformation, <em>une conviction.</em></h1>
+      <p class="hero-sub">SoppalDigital n'est pas née d'une opportunité de marché. Elle est née d'un constat : des organisations sénégalaises font de belles choses avec des outils qui ne sont pas à la hauteur de leur ambition. Nous sommes là pour changer ça.</p>
+    </div>
+    <div class="hero-founder">
+      <div class="founder-avatar">SD</div>
+      <div class="founder-name">Seydou Dia</div>
+      <div class="founder-role">Fondateur & Directeur</div>
+      <span class="founder-tag">SoppalDigital</span>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- HISTOIRE -->
+<section class="histoire">
+  <div class="histoire-inner">
+    <div class="histoire-text">
+      <div class="eyebrow">Notre histoire</div>
+      <h2 class="stitle">Une agence née d'un constat terrain</h2>
+      <p>Tout commence avec une observation simple : <strong>de nombreuses institutions sénégalaises font un travail remarquable</strong> — mais leur système d'information est encore largement manuel. Des registres en papier, des Excel partagés par email, des processus qui freinent leur développement.</p>
+      <p>SoppalDigital est née de la volonté de combler ce fossé. Pas pour vendre des sites web — mais pour <strong>transformer en profondeur</strong> la façon dont ces organisations fonctionnent. C'est le sens du mot "Soppal" en wolof : transformer, changer en mieux.</p>
+      <p>Aujourd'hui, nous accompagnons institutions académiques, médicales, entreprises et porteurs de projets dans leur passage au numérique — avec une approche qui commence toujours par le diagnostic, jamais par le catalogue.</p>
+    </div>
+    <div class="histoire-timeline">
+      <div class="tline-item">
+        <div class="tline-dot" style="background:rgba(61,111,232,0.12);border:2px solid rgba(61,111,232,0.3)">🔍</div>
+        <div class="tline-content">
+          <div class="tline-year">Le constat</div>
+          <div class="tline-title">L'observation de départ</div>
+          <div class="tline-desc">Des institutions académiques gèrent des centaines d'élèves avec des outils archaïques. Ce décalage entre ambition et outils est le point de départ de SoppalDigital.</div>
+        </div>
+      </div>
+      <div class="tline-item">
+        <div class="tline-dot" style="background:rgba(244,197,66,0.12);border:2px solid rgba(244,197,66,0.3)">💡</div>
+        <div class="tline-content">
+          <div class="tline-year">La vision</div>
+          <div class="tline-title">Soppal = transformer</div>
+          <div class="tline-desc">Le nom dit tout. SoppalDigital ne crée pas des sites web — elle transforme des organisations. Du diagnostic à la formation, en passant par le développement.</div>
+        </div>
+      </div>
+      <div class="tline-item">
+        <div class="tline-dot" style="background:rgba(232,93,60,0.12);border:2px solid rgba(232,93,60,0.3)">🚀</div>
+        <div class="tline-content">
+          <div class="tline-year">La mission</div>
+          <div class="tline-title">Le lancement à Dakar</div>
+          <div class="tline-desc">Basée à Dakar, SoppalDigital commence par accompagner des structures académiques et médicales, avant d'élargir son champ d'action à toutes les organisations.</div>
+        </div>
+      </div>
+      <div class="tline-item">
+        <div class="tline-dot" style="background:rgba(15,32,68,0.08);border:2px solid var(--gold)">🌍</div>
+        <div class="tline-content">
+          <div class="tline-year">Aujourd'hui</div>
+          <div class="tline-title">4 secteurs, 6 services</div>
+          <div class="tline-desc">Institutions académiques, médicales, entreprises et porteurs de projets — SoppalDigital construit l'écosystème digital des organisations sénégalaises.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION & VISION -->
+<section class="mv">
+  <div style="max-width:1100px;margin:0 auto">
+    <div class="mv-inner">
+      <div class="mv-card" style="background:rgba(61,111,232,0.1);border:1px solid rgba(61,111,232,0.2)">
+        <div class="mv-card" style="background:none;border:none;padding:0">
+          <div class="mv-icon">🎯</div>
+          <div class="mv-label" style="color:#7CA8FF">Notre mission</div>
+          <div class="mv-title" style="color:#fff">Transformer les organisations sénégalaises grâce au digital</div>
+          <div class="mv-text" style="color:rgba(255,255,255,0.55)">Accompagner institutions académiques, médicales, entreprises et porteurs de projets dans leur transition numérique — avec des solutions sur mesure, adaptées à leur réalité et à leur budget, en partant toujours d'un diagnostic honnête de leurs besoins réels.</div>
+        </div>
+      </div>
+      <div class="mv-card" style="background:rgba(244,197,66,0.08);border:1px solid rgba(244,197,66,0.2)">
+        <div class="mv-card" style="background:none;border:none;padding:0">
+          <div class="mv-icon">🔭</div>
+          <div class="mv-label" style="color:var(--gold)">Notre vision</div>
+          <div class="mv-title" style="color:#fff">Un Sénégal où aucune organisation ne freine sur ses outils</div>
+          <div class="mv-text" style="color:rgba(255,255,255,0.55)">Nous croyons que chaque école, chaque clinique, chaque PME et chaque startup sénégalaise mérite des outils digitaux à la hauteur de son ambition — accessibles, performants et maîtrisés par ses propres équipes.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALEURS -->
+<section class="valeurs">
+  <div class="valeurs .stitle-wrap">
+    <div style="max-width:1100px;margin:0 auto 44px">
+      <div class="eyebrow">Nos valeurs</div>
+      <h2 class="stitle">Ce qui guide chacune de nos interventions</h2>
+    </div>
+  </div>
+  <div class="valeurs-grid">
+    <div class="val-card" style="--val-color:var(--blue)">
+      <div class="val-icon">🔍</div>
+      <div class="val-title">Honnêteté du diagnostic</div>
+      <div class="val-desc">On ne vend pas avant de comprendre. Chaque accompagnement commence par une analyse honnête — même si ça signifie déconseiller certaines solutions.</div>
+    </div>
+    <div class="val-card" style="--val-color:var(--gold)">
+      <div class="val-icon">🎯</div>
+      <div class="val-title">Solutions adaptées</div>
+      <div class="val-desc">Pas de catalogue, pas de templates génériques. Chaque solution est construite autour des contraintes réelles de l'organisation — budget, équipe, secteur.</div>
+    </div>
+    <div class="val-card" style="--val-color:var(--coral)">
+      <div class="val-icon">🤝</div>
+      <div class="val-title">Autonomie du client</div>
+      <div class="val-desc">Notre objectif n'est pas de créer une dépendance. Chaque livraison inclut une formation pour que vos équipes maîtrisent leur outil sans nous.</div>
+    </div>
+    <div class="val-card" style="--val-color:var(--navy)">
+      <div class="val-icon">🌍</div>
+      <div class="val-title">Ancrage local</div>
+      <div class="val-desc">Nous comprenons le contexte sénégalais : paiement mobile, connectivité variable, contraintes budgétaires. Nos solutions fonctionnent dans votre réalité.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FONDATEUR -->
+<section class="fondateur">
+  <div class="fond-inner">
+    <div class="fond-card">
+      <!-- Icône S-transformation au lieu du portrait -->
+      <div style="position:relative;z-index:1;margin-bottom:24px;">
+        <svg width="100" height="110" viewBox="0 0 60 68" xmlns="http://www.w3.org/2000/svg" style="margin:0 auto;display:block;">
+          <path d="M50,8 C50,8 10,8 10,26 C10,44 52,44 52,60 C52,60 12,60 12,55"
+                stroke="#F4C542" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <polyline points="5,50 12,64 19,50" stroke="#F4C542" stroke-width="5" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="50" cy="8" r="8" fill="#E85D3C"/>
+          <circle cx="12" cy="64" r="6" fill="#F4C542" opacity="0.4"/>
+        </svg>
+      </div>
+      <div class="fond-name" style="font-size:15px;font-weight:700;color:#fff;margin-bottom:6px;position:relative;z-index:1">
+        Diagnostiquer d'abord
+      </div>
+      <div class="fond-role" style="position:relative;z-index:1">
+        Proposer ensuite · Former toujours
+      </div>
+      <div class="fond-tags" style="margin-top:20px">
+        <span class="fond-tag">🔴 Avant : systèmes archaïques</span>
+        <span class="fond-tag">↓ Transformation</span>
+        <span class="fond-tag">🟡 Après : outils modernes</span>
+      </div>
+    </div>
+    <div class="fond-text">
+      <div class="eyebrow" style="color:var(--coral)">La conviction derrière SoppalDigital</div>
+      <h2>La transformation digitale n'est pas un luxe réservé aux grandes entreprises.</h2>
+      <p>SoppalDigital est née d'un constat simple : des organisations sénégalaises font un travail remarquable, mais leurs outils de travail les brident. Registres papier, fichiers Excel partagés sur WhatsApp, processus 100% manuels — <strong>des outils archaïques qui ne sont pas à la hauteur de leurs ambitions.</strong></p>
+      <p>Notre conviction : toute organisation — école, clinique, PME ou startup — mérite des outils digitaux adaptés à sa réalité et à son budget. Pas des solutions génériques copiées-collées, mais un <strong>accompagnement qui part de ce qui existe, pour construire ce qui manque.</strong></p>
+      <p>C'est pour ça que chaque intervention commence par un diagnostic, pas par un catalogue.</p>
+      <div class="fond-quote">
+        <p>"Soppal signifie transformer en wolof. C'est exactement notre promesse : transformer vos organisations de l'intérieur, pas seulement vous donner un site web."</p>
+        <cite>— L'équipe SoppalDigital · Dakar, Sénégal · s.dia1317@gmail.com</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="pattern"></div>
+
+<!-- POURQUOI NOUS CHOISIR -->
+<section class="pourquoi">
+  <div style="max-width:1100px;margin:0 auto">
+    <div class="eyebrow">Pourquoi nous</div>
+    <h2 class="stitle">Ce qui fait la différence</h2>
+    <div class="pourquoi-grid">
+      <div class="p-item">
+        <div class="p-icon" style="background:rgba(61,111,232,0.1)">🔍</div>
+        <div class="p-title">On diagnostique avant de vendre</div>
+        <div class="p-desc">Chaque projet commence par une analyse gratuite de vos processus. Nous ne proposons des solutions que lorsqu'on comprend vraiment le problème.</div>
+      </div>
+      <div class="p-item">
+        <div class="p-icon" style="background:rgba(244,197,66,0.1)">⚡</div>
+        <div class="p-title">Maquette gratuite en 48h</div>
+        <div class="p-desc">Avant tout engagement financier, vous voyez une première version de votre solution. Transparence totale dès le début de la relation.</div>
+      </div>
+      <div class="p-item">
+        <div class="p-icon" style="background:rgba(232,93,60,0.1)">🇸🇳</div>
+        <div class="p-title">Contexte sénégalais maîtrisé</div>
+        <div class="p-desc">Wave, Orange Money, connectivité variable, budgets réels — nos solutions sont pensées pour fonctionner dans votre réalité, pas dans un contexte occidental idéalisé.</div>
+      </div>
+      <div class="p-item">
+        <div class="p-icon" style="background:rgba(61,111,232,0.1)">🎓</div>
+        <div class="p-title">Formation incluse à la livraison</div>
+        <div class="p-desc">Vos équipes maîtrisent leur outil le jour de la livraison. Pas de dépendance, pas de formation facturée en supplément — c'est inclus.</div>
+      </div>
+      <div class="p-item">
+        <div class="p-icon" style="background:rgba(244,197,66,0.1)">🛡️</div>
+        <div class="p-title">Accompagnement long terme</div>
+        <div class="p-desc">Nous ne disparaissons pas après la livraison. Support 7j/7, maintenance, évolutions — nous construisons une relation durable avec chaque client.</div>
+      </div>
+      <div class="p-item">
+        <div class="p-icon" style="background:rgba(232,93,60,0.1)">🏢</div>
+        <div class="p-title">Expertise multi-secteurs</div>
+        <div class="p-desc">Académique, médical, commerce, ONG, startups — nous avons développé une expertise spécifique à chaque secteur, pas une solution générique pour tous.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHIFFRES -->
+<section class="chiffres">
+  <div class="chiffres-inner">
+    <div class="chiffre"><div class="chiffre-num">48h</div><div class="chiffre-label">Maquette gratuite<br>après diagnostic</div></div>
+    <div class="chiffre"><div class="chiffre-num">4</div><div class="chiffre-label">Secteurs maîtrisés<br>en profondeur</div></div>
+    <div class="chiffre"><div class="chiffre-num">6</div><div class="chiffre-label">Services digitaux<br>complémentaires</div></div>
+    <div class="chiffre"><div class="chiffre-num">7j/7</div><div class="chiffre-label">Support réactif<br>après livraison</div></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="diagnostic">
+  <div class="cta-box">
+    <h2>Travaillons <span>ensemble</span></h2>
+    <p>Vous avez un projet de transformation digitale ? Commençons par un diagnostic gratuit pour identifier ensemble les meilleures pistes d'amélioration.</p>
+    <div class="cta-btns">
+      <a href="soppaldigital-contact.html" class="cta-btn1">Demander mon diagnostic gratuit</a>
+      <a href="soppaldigital-page-services.html" class="cta-btn2">Voir nos services</a>
+    </div>
+    <div class="cta-contacts">
+      <span class="cta-c">📞 <strong>77 221 36 77</strong></span>
+      <span class="cta-c">✉️ <strong>s.dia1317@gmail.com</strong></span>
+      <span class="cta-c">🌐 <strong>soppaldigital.sn</strong></span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <svg width="140" height="32" viewBox="0 0 220 52" xmlns="http://www.w3.org/2000/svg">
+          <path d="M44,6 C44,6 10,6 10,20 C10,34 46,34 46,48 C46,48 12,48 12,43" stroke="#F4C542" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <polyline points="5,38 12,50 19,38" stroke="#F4C542" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="44" cy="6" r="5.5" fill="#E85D3C"/>
+          <line x1="60" y1="8" x2="60" y2="44" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/>
+          <text x="72" y="26" fill="white" font-family="Inter,sans-serif" font-size="20" font-weight="900" letter-spacing="1">SOPPAL</text>
+          <line x1="72" y1="32" x2="218" y2="32" stroke="#F4C542" stroke-width="1.5"/>
+          <text x="73" y="46" fill="#F4C542" font-family="Inter,sans-serif" font-size="10" font-weight="300" letter-spacing="6">digital</text>
+        </svg>
+        <p>Transformation digitale pour institutions et entreprises au Sénégal.</p>
+      </div>
+      <div class="footer-col"><h4>Services</h4><a href="soppaldigital-page-services.html#sites-web">Sites web</a><a href="soppaldigital-page-services.html#systemes-si">Systèmes SI</a><a href="soppaldigital-page-services.html#applications">Applications</a><a href="soppaldigital-page-services.html#ecommerce">E-commerce</a><a href="soppaldigital-page-services.html#seo">SEO</a></div>
+      <div class="footer-col"><h4>Organisation</h4><a href="soppaldigital-a-propos.html">À propos</a><a href="soppaldigital-secteurs.html">Secteurs</a><a href="soppaldigital-realisations.html">Nos solutions</a></div>
+      <div class="footer-col"><h4>Contact</h4><a href="tel:+221772213677">📞 77 221 36 77</a><a href="mailto:s.dia1317@gmail.com">✉️ s.dia1317@gmail.com</a><a href="#">📍 Dakar, Sénégal</a></div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 SoppalDigital · Dakar, Sénégal</div>
+      <div class="footer-rs"><a class="rs" href="#">in</a><a class="rs" href="#">𝕏</a><a class="rs" href="#">f</a><a class="rs" href="#">▶</a></div>
+    </div>
+  </div>
+</footer>
+<script>document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}});});</script>
+</body>
+</html>
