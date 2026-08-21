@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Nos Services — SoppalDigital</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0F2044;--blue:#3D6FE8;--gold:#F4C542;--coral:#E85D3C;
+  --light:#F0F5FF;--lighter:#E8EFFE;--dark:#080E1E;
+  --text:#0F2044;--muted:#4A5568;--subtle:#94A3B8;
+  --white:#fff;--border:#CBD8F5;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--text);background:#fff;overflow-x:hidden}
+
+/* ── HEADER ── */
+header{position:sticky;top:0;z-index:100;background:rgba(15,32,68,0.97);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,0.08)}
+.nav{max-width:1100px;margin:0 auto;padding:0 32px;height:64px;display:flex;align-items:center;gap:40px}
+.nav-logo{display:flex;align-items:center;gap:0;flex-shrink:0}
+.nav-links{display:flex;gap:28px;margin-left:auto}
+.nav-links a{color:rgba(255,255,255,0.65);font-size:14px;font-weight:500;text-decoration:none;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:#fff}
+.nav-cta{margin-left:24px;background:var(--gold);color:var(--navy);font-size:13px;font-weight:700;padding:9px 20px;border-radius:8px;text-decoration:none;white-space:nowrap;transition:opacity .2s}
+.nav-cta:hover{opacity:.9}
+
+/* ── HERO ── */
+.hero{background:var(--navy);padding:80px 32px 72px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-80px;right:-80px;width:500px;height:500px;border:2px solid rgba(61,111,232,0.15);border-radius:50%;pointer-events:none}
+.hero::after{content:'';position:absolute;top:-20px;right:-20px;width:320px;height:320px;border:2px solid rgba(61,111,232,0.1);border-radius:50%;pointer-events:none}
+.hero-inner{max-width:1100px;margin:0 auto;position:relative;z-index:1}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(61,111,232,0.18);border:1px solid rgba(61,111,232,0.35);color:#7CA8FF;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:28px}
+.hero h1{font-size:48px;font-weight:900;color:#fff;line-height:1.08;margin-bottom:20px;max-width:700px}
+.hero h1 em{color:var(--gold);font-style:normal}
+.hero-sub{font-size:17px;color:rgba(255,255,255,0.6);line-height:1.7;max-width:580px;margin-bottom:36px}
+.hero-sub strong{color:#fff}
+.hero-anchors{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:40px}
+.anchor-pill{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.75);font-size:13px;font-weight:500;padding:7px 16px;border-radius:20px;text-decoration:none;transition:all .2s}
+.anchor-pill:hover{background:rgba(61,111,232,0.25);border-color:rgba(61,111,232,0.5);color:#fff}
+.hero-cta{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--navy);font-size:15px;font-weight:700;padding:14px 28px;border-radius:10px;text-decoration:none;transition:opacity .2s}
+.hero-cta:hover{opacity:.9}
+.hero-cta svg{width:16px;height:16px}
+
+/* ── SECTIONS COMMUNES ── */
+.section{padding:80px 32px}
+.section-inner{max-width:1100px;margin:0 auto}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
+.section-title{font-size:34px;font-weight:900;color:var(--navy);line-height:1.15;margin-bottom:16px}
+.section-sub{font-size:16px;color:var(--muted);line-height:1.7;max-width:580px;margin-bottom:48px}
+.divider{height:5px;background:linear-gradient(90deg,var(--gold),var(--blue),var(--navy))}
+
+/* ── VUE D'ENSEMBLE ── */
+.overview{background:var(--light)}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.srv-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:24px;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s;cursor:pointer;text-decoration:none;display:block;color:inherit}
+.srv-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:var(--accent-color)}
+.srv-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(15,32,68,.1)}
+.srv-icon{font-size:28px;margin-bottom:14px}
+.srv-name{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:8px}
+.srv-desc{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:14px}
+.srv-tags{display:flex;flex-wrap:wrap;gap:4px}
+.srv-tag{font-size:10px;font-weight:600;background:var(--light);color:var(--blue);padding:3px 8px;border-radius:6px;border:1px solid var(--border)}
+.srv-arrow{position:absolute;top:20px;right:20px;color:var(--subtle);font-size:18px;transition:color .2s,transform .2s}
+.srv-card:hover .srv-arrow{color:var(--blue);transform:translate(2px,-2px)}
+
+/* ── DÉTAIL SERVICE ── */
+.service-detail{padding:80px 32px;border-top:1px solid var(--border)}
+.service-detail:nth-child(even){background:var(--lighter)}
+.sd-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.sd-inner.reverse{direction:rtl}
+.sd-inner.reverse > *{direction:ltr}
+.sd-visual{background:var(--navy);border-radius:20px;padding:40px;min-height:320px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.sd-visual::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;border:2px solid rgba(61,111,232,0.2);border-radius:50%}
+.sd-big-icon{font-size:72px;margin-bottom:16px;position:relative;z-index:1}
+.sd-visual-title{font-size:18px;font-weight:700;color:#fff;text-align:center;position:relative;z-index:1;margin-bottom:8px}
+.sd-visual-sub{font-size:13px;color:rgba(255,255,255,0.5);text-align:center;position:relative;z-index:1}
+.sd-content .eyebrow{color:var(--coral)}
+.sd-title{font-size:28px;font-weight:800;color:var(--navy);line-height:1.2;margin-bottom:16px}
+.sd-desc{font-size:15px;color:var(--muted);line-height:1.75;margin-bottom:24px}
+.sd-deliverables{margin-bottom:24px}
+.sd-del-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--subtle);margin-bottom:10px}
+.sd-del-list{display:flex;flex-direction:column;gap:8px}
+.sd-del-item{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--text)}
+.sd-del-check{width:20px;height:20px;background:rgba(61,111,232,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px;color:var(--blue)}
+.sd-sectors{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:28px}
+.sd-sector{font-size:12px;font-weight:500;padding:5px 12px;border-radius:20px;border:1px solid var(--border);color:var(--muted)}
+.sd-btn{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;font-size:14px;font-weight:600;padding:12px 24px;border-radius:9px;text-decoration:none;transition:background .2s}
+.sd-btn:hover{background:var(--blue)}
+.sd-btn-gold{background:var(--gold);color:var(--navy)}
+.sd-btn-gold:hover{background:#e6b800}
+
+/* ── PROCESSUS ── */
+.process{background:var(--navy);padding:80px 32px}
+.process .section-title{color:#fff}
+.process .section-sub{color:rgba(255,255,255,0.55)}
+.process-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative;margin-top:0}
+.process-steps::before{content:'';position:absolute;top:36px;left:10%;right:10%;height:2px;background:rgba(61,111,232,0.3)}
+.pstep{text-align:center;padding:0 8px;position:relative;z-index:1}
+.pstep-circle{width:72px;height:72px;background:var(--dark);border:2px solid rgba(61,111,232,0.4);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto 20px;transition:border-color .3s}
+.pstep:hover .pstep-circle{border-color:var(--gold)}
+.pstep-num{font-size:11px;font-weight:700;color:var(--gold);letter-spacing:.1em}
+.pstep-icon{font-size:20px;margin-top:2px}
+.pstep-title{font-size:14px;font-weight:700;color:#fff;margin-bottom:6px}
+.pstep-desc{font-size:12px;color:rgba(255,255,255,0.45);line-height:1.5}
+
+/* ── POURQUOI ── */
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.why-item{background:var(--light);border:1px solid var(--border);border-radius:12px;padding:22px;display:flex;gap:14px}
+.why-check{width:32px;height:32px;background:rgba(61,111,232,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;color:var(--blue)}
+.why-text strong{display:block;font-size:14px;font-weight:700;color:var(--navy);margin-bottom:5px}
+.why-text p{font-size:12px;color:var(--muted);line-height:1.55}
+
+/* ── FAQ ── */
+.faq-section{background:var(--lighter)}
+.faq-list{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:0}
+.faq-item{border-bottom:1px solid var(--border);overflow:hidden}
+.faq-item:first-child{border-top:1px solid var(--border)}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;padding:20px 0;background:none;border:none;cursor:pointer;font-size:16px;font-weight:600;color:var(--navy);text-align:left;gap:16px}
+.faq-icon{width:24px;height:24px;background:rgba(61,111,232,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;color:var(--blue);transition:transform .3s,background .2s}
+.faq-item.open .faq-icon{transform:rotate(45deg);background:var(--blue);color:#fff}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s}
+.faq-item.open .faq-a{max-height:200px;padding-bottom:20px}
+.faq-a p{font-size:15px;color:var(--muted);line-height:1.7}
+
+/* ── CTA FINAL ── */
+.cta-final{background:var(--navy);padding:80px 32px}
+.cta-box{max-width:800px;margin:0 auto;text-align:center}
+.cta-box h2{font-size:38px;font-weight:900;color:#fff;line-height:1.15;margin-bottom:14px}
+.cta-box h2 span{color:var(--gold)}
+.cta-box p{font-size:16px;color:rgba(255,255,255,0.55);margin-bottom:36px;line-height:1.7}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:36px}
+.cta-btn-main{background:var(--gold);color:var(--navy);font-size:15px;font-weight:700;padding:14px 30px;border-radius:10px;text-decoration:none;transition:opacity .2s}
+.cta-btn-main:hover{opacity:.9}
+.cta-btn-sec{background:rgba(255,255,255,0.08);color:#fff;font-size:15px;font-weight:600;padding:14px 30px;border-radius:10px;border:1px solid rgba(255,255,255,0.18);text-decoration:none;transition:background .2s}
+.cta-btn-sec:hover{background:rgba(255,255,255,0.15)}
+.cta-contacts{display:flex;gap:28px;justify-content:center;flex-wrap:wrap}
+.cta-contact{display:flex;align-items:center;gap:8px;font-size:14px;color:rgba(255,255,255,0.45)}
+.cta-contact strong{color:var(--gold)}
+.guarantee-pills{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:36px}
+.gpill{font-size:12px;font-weight:500;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.6);padding:6px 14px;border-radius:20px}
+
+/* ── FOOTER ── */
+footer{background:var(--dark);padding:48px 32px 28px}
+.footer-inner{max-width:1100px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,0.08)}
+.footer-brand p{font-size:13px;color:rgba(255,255,255,0.35);line-height:1.7;margin-top:14px;max-width:280px}
+.footer-col h4{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,0.3);margin-bottom:14px}
+.footer-col a{display:block;font-size:13px;color:rgba(255,255,255,0.45);text-decoration:none;margin-bottom:8px;transition:color .2s}
+.footer-col a:hover{color:#fff}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center}
+.footer-copy{font-size:12px;color:rgba(255,255,255,0.2)}
+.footer-rs{display:flex;gap:12px}
+.rs-link{width:32px;height:32px;background:rgba(255,255,255,0.06);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;color:rgba(255,255,255,0.4);text-decoration:none;transition:background .2s,color .2s}
+.rs-link:hover{background:var(--blue);color:#fff}
+
+/* ── WHATSAPP FLOAT ── */
+.wa-float{position:fixed;bottom:28px;right:28px;width:54px;height:54px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 16px rgba(37,211,102,.4);z-index:200;transition:transform .2s}
+.wa-float:hover{transform:scale(1.08)}
+.wa-float svg{width:28px;height:28px;fill:#fff}
+</style>
+</head>
+<body>
+
+<!-- WHATSAPP FLOAT -->
+<a class="wa-float" href="https://wa.me/221772213677" target="_blank" title="Contactez-nous sur WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- HEADER -->
+<header>
+  <nav class="nav">
+    <div class="nav-logo">
+      <svg width="160" height="38" viewBox="0 0 220 52" xmlns="http://www.w3.org/2000/svg">
+        <path d="M44,6 C44,6 10,6 10,20 C10,34 46,34 46,48 C46,48 12,48 12,43" stroke="#F4C542" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <polyline points="5,38 12,50 19,38" stroke="#F4C542" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="44" cy="6" r="5.5" fill="#E85D3C"/>
+        <circle cx="12" cy="50" r="4" fill="#F4C542" opacity="0.35"/>
+        <line x1="60" y1="8" x2="60" y2="44" stroke="rgba(255,255,255,0.12)" stroke-width="0.5"/>
+        <text x="72" y="26" fill="white" font-family="Inter,sans-serif" font-size="20" font-weight="900" letter-spacing="1">SOPPAL</text>
+        <line x1="72" y1="32" x2="218" y2="32" stroke="#F4C542" stroke-width="1.5"/>
+        <text x="73" y="46" fill="#F4C542" font-family="Inter,sans-serif" font-size="10" font-weight="300" letter-spacing="6">digital</text>
+      </svg>
+    </div>
+    <div class="nav-links"><a href="index.html">Accueil</a><a href="soppaldigital-page-services.html" class="active">Services</a><a href="soppaldigital-secteurs.html">Secteurs</a><a href="soppaldigital-realisations.html">Nos solutions</a><a href="soppaldigital-a-propos.html">À propos</a><a href="soppaldigital-contact.html">Contact</a></div>
+    <a href="soppaldigital-contact.html" class="nav-cta">Diagnostic gratuit</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">🛠️ Nos services</div>
+    <h1>Des services digitaux <em>taillés pour votre réalité</em></h1>
+    <p class="hero-sub">Chaque solution commence par un <strong>diagnostic gratuit</strong> — pas par un catalogue. Nous adaptons chaque service à votre secteur, vos contraintes et vos ambitions.</p>
+    <div class="hero-anchors">
+      <a href="#sites-web" class="anchor-pill">🌐 Sites web</a>
+      <a href="#systemes-si" class="anchor-pill">🗂️ Systèmes SI</a>
+      <a href="#applications" class="anchor-pill">📱 Applications</a>
+      <a href="#ecommerce" class="anchor-pill">🛒 E-commerce</a>
+      <a href="#seo" class="anchor-pill">📈 SEO</a>
+      <a href="#formation" class="anchor-pill">🎓 Formation</a>
+    </div>
+    <a href="soppaldigital-contact.html" class="hero-cta">
+      Demander mon diagnostic gratuit
+      <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- VUE D'ENSEMBLE -->
+<section class="section overview">
+  <div class="section-inner">
+    <div class="eyebrow">6 domaines d'expertise</div>
+    <div class="section-title">Ce que nous faisons pour vous</div>
+    <div class="section-sub">De la création de sites vitrines à la digitalisation complète de vos processus internes — chaque service est pensé pour votre contexte.</div>
+    <div class="services-grid">
+      <a href="#sites-web" class="srv-card" style="--accent-color:#3D6FE8">
+        <div class="srv-arrow">↗</div>
+        <div class="srv-icon">🌐</div>
+        <div class="srv-name">Sites web professionnels</div>
+        <div class="srv-desc">Vitrine, portail ou e-commerce — une présence en ligne claire, rapide et à votre image.</div>
+        <div class="srv-tags"><span class="srv-tag">Vitrine</span><span class="srv-tag">Portail</span><span class="srv-tag">Responsive</span></div>
+      </a>
+      <a href="#systemes-si" class="srv-card" style="--accent-color:#F4C542">
+        <div class="srv-arrow">↗</div>
+        <div class="srv-icon">🗂️</div>
+        <div class="srv-name">Systèmes d'information</div>
+        <div class="srv-desc">Remplacez vos registres papier et Excel par des outils de gestion adaptés à votre réalité.</div>
+        <div class="srv-tags"><span class="srv-tag">Base de données</span><span class="srv-tag">Dashboard</span><span class="srv-tag">Automatisation</span></div>
+      </a>
+      <a href="#applications" class="srv-card" style="--accent-color:#E85D3C">
+        <div class="srv-arrow">↗</div>
+        <div class="srv-icon">📱</div>
+        <div class="srv-name">Applications métier</div>
+        <div class="srv-desc">Gestion des élèves, patients, RH, stocks, inscriptions — entièrement sur mesure.</div>
+        <div class="srv-tags"><span class="srv-tag">Web app</span><span class="srv-tag">Mobile</span><span class="srv-tag">Sur mesure</span></div>
+      </a>
+      <a href="#ecommerce" class="srv-card" style="--accent-color:#3D6FE8">
+        <div class="srv-arrow">↗</div>
+        <div class="srv-icon">🛒</div>
+        <div class="srv-name">E-commerce</div>
+        <div class="srv-desc">Boutiques en ligne avec Wave, Orange Money et Free Money intégrés nativement.</div>
+        <div class="srv-tags"><span class="srv-tag">Wave</span><span class="srv-tag">Orange Money</span><span class="srv-tag">Livraison</span></div>
+      </a>
+      <a href="#seo" class="srv-card" style="--accent-color:#F4C542">
+        <div class="srv-arrow">↗</div>
+        <div class="srv-icon">📈</div>
+        <div class="srv-name">Référencement SEO</div>
+        <div class="srv-desc">Être trouvé sur Google par vos clients au bon moment, avec les bons mots.</div>
+        <div class="srv-tags"><span class="srv-tag">Audit</span><span class="srv-tag">Optimisation</span><span class="srv-tag">Rapport mensuel</span></div>
+      </a>
+      <a href="#formation" class="srv-card" style="--accent-color:#E85D3C">
+        <div class="srv-arrow">↗</div>
+        <div class="srv-icon">🎓</div>
+        <div class="srv-name">Formation & accompagnement</div>
+        <div class="srv-desc">Ateliers pratiques pour que vos équipes maîtrisent leurs nouveaux outils.</div>
+        <div class="srv-tags"><span class="srv-tag">Ateliers</span><span class="srv-tag">Coaching</span><span class="srv-tag">Documentation</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── DÉTAILS SERVICES ── -->
+
+<!-- 1. Sites web -->
+<section class="service-detail" id="sites-web">
+  <div class="sd-inner">
+    <div class="sd-visual">
+      <div class="sd-big-icon">🌐</div>
+      <div class="sd-visual-title">Sites web professionnels</div>
+      <div class="sd-visual-sub">Vitrine · Portail · E-commerce · Responsive</div>
+    </div>
+    <div class="sd-content">
+      <div class="eyebrow" style="color:#3D6FE8">Service 01</div>
+      <div class="sd-title">Votre image en ligne, à la hauteur de votre ambition</div>
+      <div class="sd-desc">Un site web professionnel est votre première impression digitale. Nous concevons des sites rapides, sécurisés et optimisés pour convertir vos visiteurs en clients — en partant de vos besoins réels, pas d'un template.</div>
+      <div class="sd-deliverables">
+        <div class="sd-del-label">Ce que vous recevez</div>
+        <div class="sd-del-list">
+          <div class="sd-del-item"><div class="sd-del-check">✓</div>Maquette gratuite sous 48h</div>
+          <div class="sd-del-item"><div class="sd-del-check">✓</div>Site responsive (mobile, tablette, desktop)</div>
+          <div class="sd-del-item"><div class="sd-del-check">✓</div>Hébergement + nom de domaine .sn inclus (1 an)</div>
+          <div class="sd-del-item"><div class="sd-del-check">✓</div>Formation à la gestion du site</div>
+          <div class="sd-del-item"><div class="sd-del-check">✓</div>Certification SSL (sécurité HTTPS)</div>
+        </div>
+      </div>
+      <div class="sd-sectors">
+        <span class="sd-sector">🏫 Académique</span>
+        <span class="sd-sector">🏥 Médical</span>
+        <span class="sd-sector">🏢 Entreprises</span>
+        <span class="sd-sector">🚀 Startups</span>
+      </div>
+      <a href="soppaldigital-contact.html" class="sd-btn">Créer mon site →</a>
+    </div>
+  </div>
+</section>
+
+<!-- 2. Systèmes SI -->
+<section class="service-detail" id="systemes-si">
+  <div class="sd-inner reverse">
+    <div class="sd-visual" style="background:#1A2E5C">
+      <div class="sd-big-icon">🗂️</div>
+      <div class="sd-visual-title">Systèmes d'information</div>
+      <div class="sd-visual-sub">Gestion · Base de données · Tableau de bord</div>
+    </div>
+    <div class="sd-content">
+      <div class="eyebrow" style="color:#F4C542">Service 02</div>
+      <div class="sd-title">Dites adieu aux registres papier et aux Excel mal partagés</div>
+      <div class="sd-desc">Vos équipes méritent des outils qui fonctionnent. Nous concevons des systèmes d'information sur mesure — simples à prendre en main, adaptés à vos flux de travail réels et accessibles depuis n'importe quel appareil.</div>
+      <div class="sd-deliverables">
+        <div class="sd-del-label">Ce que vous recevez</div>
+        <div class="sd-del-list">
+          <div class="sd-del-item"><div class="sd-del-check" style="color:#F4C542">✓</div>Audit de vos processus existants (diagnostic inclus)</div>
+          <div class="sd-del-item"><div class="sd-del-check" style="color:#F4C542">✓</div>Base de données sécurisée avec accès multi-utilisateurs</div>
+          <div class="sd-del-item"><div class="sd-del-check" style="color:#F4C542">✓</div>Tableau de bord de suivi en temps réel</div>
+          <div class="sd-del-item"><div class="sd-del-check" style="color:#F4C542">✓</div>Exports PDF / Excel automatisés</div>
+          <div class="sd-del-item"><div class="sd-del-check" style="color:#F4C542">✓</div>Formation complète de vos équipes</div>
+        </div>
+      </div>
+      <div class="sd-sectors">
+        <span class="sd-sector">🏫 Gestion des élèves</span>
+        <span class="sd-sector">🏥 Dossiers patients</span>
+        <span class="sd-sector">🏢 RH & stocks</span>
+      </div>
+      <a href="soppaldigital-contact.html" class="sd-btn">Digitaliser mes processus →</a>
+    </div>
+  </div>
+</section>
+
+<!-- 3. Applications -->
+<section class="service-detail" id="applications">
+  <div class="sd-inner">
+    <div class="sd-visual" style="background:#2A1A3C">
+      <div class="sd-big-icon">📱</div>
+      <div class="sd-visual-title">Applications métier</div>
+      <div class="sd-visual-sub">Web app · Mobile · 100% sur mesure</div>
+    </div>
+    <div class="sd-content">
+      <div class="eyebrow" style="color:#E85D3C">Service 03</div>
+      <div class="sd-title">L'application que votre organisation mérite, pas un outil générique</div>
+      <div class="sd-desc">Quand un logiciel du marché ne correspond pas à vos besoins spécifiques, nous construisons le vôtre. Des applications web et mobiles conçues autour de vos processus — pas l'inverse.</div>
+      <div class="sd-deliverables">
+        <div class="sd-del-label">Ce que vous recevez</div>
+        <div class="sd-del-list">
+          <div class="sd-del-item"><div class="sd-del-check" style="color:#E85D3C">✓</div>Application web accessible depuis tout navigateur</div>
+          <div class="sd-del-item"><div class="sd-del-check" style="color:#E85D3C">✓</div>Version mobile (Android & iOS) si nécessaire</div>
+          <div class="sd-del-item"><div class="sd-del-check" style="color:#E85D3C">✓</div>Système de connexion sécurisé par rôles</div>
+          <div class="sd-del-item"><div class="sd-del-check" style="color:#E85D3C">✓</div>Notifications et alertes automatiques</div>
+          <div class="sd-del-item"><div class="sd-del-check" style="color:#E85D3C">✓</div>Code source remis au client</div>
+        </div>
+      </div>
+      <div class="sd-sectors">
+        <span class="sd-sector">🏫 Portail étudiant</span>
+        <span class="sd-sector">🏥 Rendez-vous médical</span>
+        <span class="sd-sector">🚀 MVP startup</span>
+      </div>
+      <a href="soppaldigital-contact.html" class="sd-btn">Créer mon application →</a>
+    </div>
+  </div>
+</section>
+
+<!-- 4. E-commerce -->
+<section class="service-detail" id="ecommerce">
+  <div class="sd-inner reverse">
+    <div class="sd-visual" style="background:#1A3A2A">
+      <div class="sd-big-icon">🛒</div>
+      <div class="sd-visual-title">E-commerce</div>
+      <div class="sd-visual-sub">Wave · Orange Money · Free Money · Livraison</div>
+    </div>
+    <div class="sd-content">
+      <div class="eyebrow" style="color:#3D6FE8">Service 04</div>
+      <div class="sd-title">Vendez en ligne avec les modes de paiement que vos clients utilisent</div>
+      <div class="sd-desc">Une boutique en ligne adaptée au marché sénégalais : paiement mobile natif, gestion des livraisons locales et interface simple pour vos clients comme pour votre équipe. Ouverte 24h/24, 7j/7.</div>
+      <div class="sd-deliverables">
+        <div class="sd-del-label">Ce que vous recevez</div>
+        <div class="sd-del-list">
+          <div class="sd-del-item"><div class="sd-del-check">✓</div>Wave, Orange Money, Free Money intégrés</div>
+          <div class="sd-del-item"><div class="sd-del-check">✓</div>Gestion des commandes et du stock</div>
+          <div class="sd-del-item"><div class="sd-del-check">✓</div>Catalogue produits illimité</div>
+          <div class="sd-del-item"><div class="sd-del-check">✓</div>Suivi des livraisons</div>
+          <div class="sd-del-item"><div class="sd-del-check">✓</div>Tableau de bord des ventes</div>
+        </div>
+      </div>
+      <div class="sd-sectors">
+        <span class="sd-sector">🏢 Commerce</span>
+        <span class="sd-sector">🎨 Artisanat</span>
+        <span class="sd-sector">🍽️ Restauration</span>
+        <span class="sd-sector">🚀 Startups</span>
+      </div>
+      <a href="soppaldigital-contact.html" class="sd-btn">Lancer ma boutique →</a>
+    </div>
+  </div>
+</section>
+
+<!-- 5. SEO -->
+<section class="service-detail" id="seo">
+  <div class="sd-inner">
+    <div class="sd-visual" style="background:#0F2A44">
+      <div class="sd-big-icon">📈</div>
+      <div class="sd-visual-title">Référencement SEO</div>
+      <div class="sd-visual-sub">Audit · Optimisation · Contenu · Rapport mensuel</div>
+    </div>
+    <div class="sd-content">
+      <div class="eyebrow" style="color:#F4C542">Service 05</div>
+      <div class="sd-title">Être trouvé sur Google par les bonnes personnes, au bon moment</div>
+      <div class="sd-desc">Un bon site ne vaut rien s'il est invisible. Nous optimisons votre présence sur les moteurs de recherche pour que vos clients vous trouvent naturellement — sans payer de publicité à chaque clic.</div>
+      <div class="sd-deliverables">
+        <div class="sd-del-label">Ce que vous recevez</div>
+        <div class="sd-del-list">
+          <div class="sd-del-item"><div class="sd-del-check" style="color:#F4C542">✓</div>Audit SEO complet de votre site</div>
+          <div class="sd-del-item"><div class="sd-del-check" style="color:#F4C542">✓</div>Recherche de mots-clés locaux (Dakar, Sénégal)</div>
+          <div class="sd-del-item"><div class="sd-del-check" style="color:#F4C542">✓</div>Optimisation technique (vitesse, mobile, structure)</div>
+          <div class="sd-del-item"><div class="sd-del-check" style="color:#F4C542">✓</div>Création de contenu optimisé</div>
+          <div class="sd-del-item"><div class="sd-del-check" style="color:#F4C542">✓</div>Rapport mensuel de performance</div>
+        </div>
+      </div>
+      <div class="sd-sectors">
+        <span class="sd-sector">🏢 Toutes organisations</span>
+        <span class="sd-sector">🛒 E-commerce</span>
+        <span class="sd-sector">🏥 Médical</span>
+      </div>
+      <a href="soppaldigital-contact.html" class="sd-btn">Améliorer mon SEO →</a>
+    </div>
+  </div>
+</section>
+
+<!-- 6. Formation -->
+<section class="service-detail" id="formation">
+  <div class="sd-inner reverse">
+    <div class="sd-visual" style="background:#2A1A0E">
+      <div class="sd-big-icon">🎓</div>
+      <div class="sd-visual-title">Formation & accompagnement</div>
+      <div class="sd-visual-sub">Ateliers · Coaching · Documentation · Autonomie</div>
+    </div>
+    <div class="sd-content">
+      <div class="eyebrow" style="color:#E85D3C">Service 06</div>
+      <div class="sd-title">Vos équipes autonomes, pas dépendantes de nous</div>
+      <div class="sd-desc">La meilleure technologie échoue si les équipes ne savent pas l'utiliser. Chaque livraison inclut une formation pratique. Nous proposons aussi des ateliers indépendants pour montée en compétence.</div>
+      <div class="sd-deliverables">
+        <div class="sd-del-label">Ce que vous recevez</div>
+        <div class="sd-del-list">
+          <div class="sd-del-item"><div class="sd-del-check" style="color:#E85D3C">✓</div>Formation pratique à la livraison (incluse)</div>
+          <div class="sd-del-item"><div class="sd-del-check" style="color:#E85D3C">✓</div>Guide utilisateur personnalisé</div>
+          <div class="sd-del-item"><div class="sd-del-check" style="color:#E85D3C">✓</div>Ateliers collectifs (2-10 personnes)</div>
+          <div class="sd-del-item"><div class="sd-del-check" style="color:#E85D3C">✓</div>Sessions de questions-réponses post-livraison</div>
+          <div class="sd-del-item"><div class="sd-del-check" style="color:#E85D3C">✓</div>Support réactif 7j/7 pendant 3 mois</div>
+        </div>
+      </div>
+      <div class="sd-sectors">
+        <span class="sd-sector">🏫 Académique</span>
+        <span class="sd-sector">🏥 Médical</span>
+        <span class="sd-sector">🏢 Entreprises</span>
+        <span class="sd-sector">🏛️ ONG</span>
+      </div>
+      <a href="soppaldigital-contact.html" class="sd-btn">Planifier une formation →</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESSUS -->
+<section class="process">
+  <div class="section-inner">
+    <div class="eyebrow" style="color:#F4C542">Notre méthode</div>
+    <div class="section-title" style="color:#fff">Comment nous travaillons ensemble</div>
+    <div class="section-sub" style="color:rgba(255,255,255,0.5);margin-bottom:56px">Cinq étapes claires, du premier contact à l'autonomie de vos équipes.</div>
+    <div class="process-steps">
+      <div class="pstep">
+        <div class="pstep-circle"><span class="pstep-num">01</span><span class="pstep-icon">🔍</span></div>
+        <div class="pstep-title">Diagnostic</div>
+        <div class="pstep-desc">Analyse de vos besoins et processus existants — gratuit, sans engagement</div>
+      </div>
+      <div class="pstep">
+        <div class="pstep-circle"><span class="pstep-num">02</span><span class="pstep-icon">📋</span></div>
+        <div class="pstep-title">Proposition</div>
+        <div class="pstep-desc">Devis détaillé + maquette gratuite sous 48h</div>
+      </div>
+      <div class="pstep">
+        <div class="pstep-circle"><span class="pstep-num">03</span><span class="pstep-icon">⚙️</span></div>
+        <div class="pstep-title">Conception</div>
+        <div class="pstep-desc">Design & développement avec points réguliers</div>
+      </div>
+      <div class="pstep">
+        <div class="pstep-circle"><span class="pstep-num">04</span><span class="pstep-icon">🚀</span></div>
+        <div class="pstep-title">Livraison</div>
+        <div class="pstep-desc">Tests · Validation · Mise en ligne + formation</div>
+      </div>
+      <div class="pstep">
+        <div class="pstep-circle"><span class="pstep-num">05</span><span class="pstep-icon">🛡️</span></div>
+        <div class="pstep-title">Suivi</div>
+        <div class="pstep-desc">Maintenance · Support 7j/7 · Évolutions</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POURQUOI NOUS -->
+<section class="section">
+  <div class="section-inner">
+    <div class="eyebrow">Nos engagements</div>
+    <div class="section-title">Pourquoi choisir SoppalDigital</div>
+    <div class="section-sub">Ce qui nous distingue des autres agences web au Sénégal.</div>
+    <div class="why-grid">
+      <div class="why-item"><div class="why-check">🔍</div><div class="why-text"><strong>Diagnostic avant tout</strong><p>On ne vend rien avant de comprendre. Chaque projet commence par une analyse honnête de vos besoins réels.</p></div></div>
+      <div class="why-item"><div class="why-check">⚡</div><div class="why-text"><strong>Maquette en 48h</strong><p>Vous voyez une première version avant tout engagement financier. Pas de surprise.</p></div></div>
+      <div class="why-item"><div class="why-check">💳</div><div class="why-text"><strong>Paiement mobile local</strong><p>Wave, Orange Money, Free Money intégrés nativement — conçu pour le marché sénégalais.</p></div></div>
+      <div class="why-item"><div class="why-check">🎓</div><div class="why-text"><strong>Autonomie garantie</strong><p>Formation incluse à la livraison. Vos équipes gèrent leur outil sans dépendre de nous.</p></div></div>
+      <div class="why-item"><div class="why-check">🛡️</div><div class="why-text"><strong>Support 7j/7</strong><p>Une question, un problème ? Nous répondons sous 24h. Contrats de maintenance disponibles.</p></div></div>
+      <div class="why-item"><div class="why-check">🏢</div><div class="why-text"><strong>Multi-secteurs</strong><p>Académique, médical, commerce, ONG, startups — nous maîtrisons les contraintes de chaque secteur.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section faq-section">
+  <div class="section-inner">
+    <div class="eyebrow" style="text-align:center">Questions fréquentes</div>
+    <div class="section-title" style="text-align:center">Tout ce que vous voulez savoir</div>
+    <div class="faq-list">
+      <div class="faq-item open">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Combien coûte la création d'un site web au Sénégal ?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><p>Nous travaillons sur devis personnalisé après diagnostic gratuit. Le coût varie selon la complexité du projet, le nombre de pages, les fonctionnalités et votre secteur. Contactez-nous pour un devis adapté à votre budget et vos besoins.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Combien de temps faut-il pour livrer un site web ?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><p>Entre 2 et 6 semaines selon la complexité. Un site vitrine simple peut être livré en 2 semaines. Une application métier complète peut prendre 6 à 12 semaines. Vous recevez une maquette gratuite sous 48h dès validation du diagnostic.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Puis-je gérer mon site moi-même après la livraison ?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><p>Oui, c'est notre engagement. Chaque livraison inclut une formation pratique pour gérer votre contenu en autonomie. Nous fournissons également un guide utilisateur personnalisé.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Travaillez-vous avec des organisations à budget limité ?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><p>Oui. Nous avons des solutions adaptées aux ONG, associations, écoles communautaires et porteurs de projets en démarrage. Le diagnostic gratuit nous permet de proposer des solutions dans votre enveloppe budgétaire.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Proposez-vous la maintenance après livraison ?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><p>Oui. Des contrats de maintenance mensuels incluant mises à jour de sécurité, sauvegardes automatiques, corrections de bugs et support technique réactif 7j/7. Nous restons à vos côtés sur la durée.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Travaillez-vous avec des clients hors de Dakar ?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><p>Oui. Nous collaborons avec des clients dans tout le Sénégal (Thiès, Saint-Louis, Ziguinchor, Kaolack…) et avec la diaspora sénégalaise à l'étranger. Toutes nos réunions peuvent se tenir en visioconférence.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final" id="diagnostic">
+  <div class="cta-box">
+    <h2>Prêt à <span>transformer</span> votre organisation ?</h2>
+    <p>Institution académique, médicale, entreprise ou porteur de projet — obtenez votre diagnostic gratuit en 48h et découvrez ce que le digital peut changer pour vous.</p>
+    <div class="guarantee-pills">
+      <span class="gpill">✓ 100% gratuit</span>
+      <span class="gpill">✓ Réponse sous 24h</span>
+      <span class="gpill">✓ Sans engagement</span>
+      <span class="gpill">✓ Maquette offerte</span>
+    </div>
+    <div class="cta-btns">
+      <a href="mailto:s.dia1317@gmail.com" class="cta-btn-main">Demander mon diagnostic gratuit</a>
+      <a href="#" class="cta-btn-sec">Voir nos réalisations</a>
+    </div>
+    <div class="cta-contacts">
+      <div class="cta-contact">📞 <strong>77 221 36 77</strong></div>
+      <div class="cta-contact">✉️ <strong>s.dia1317@gmail.com</strong></div>
+      <div class="cta-contact">💬 <strong>WhatsApp disponible</strong></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <svg width="140" height="34" viewBox="0 0 220 52" xmlns="http://www.w3.org/2000/svg">
+          <path d="M44,6 C44,6 10,6 10,20 C10,34 46,34 46,48 C46,48 12,48 12,43" stroke="#F4C542" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <polyline points="5,38 12,50 19,38" stroke="#F4C542" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="44" cy="6" r="5.5" fill="#E85D3C"/>
+          <line x1="60" y1="8" x2="60" y2="44" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/>
+          <text x="72" y="26" fill="white" font-family="Inter,sans-serif" font-size="20" font-weight="900" letter-spacing="1">SOPPAL</text>
+          <line x1="72" y1="32" x2="218" y2="32" stroke="#F4C542" stroke-width="1.5"/>
+          <text x="73" y="46" fill="#F4C542" font-family="Inter,sans-serif" font-size="10" font-weight="300" letter-spacing="6">digital</text>
+        </svg>
+        <p>Transformons vos organisations, un outil à la fois. Basés à Dakar, nous accompagnons institutions et entreprises dans leur transformation digitale.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="#sites-web">Sites web</a>
+        <a href="#systemes-si">Systèmes SI</a>
+        <a href="#applications">Applications</a>
+        <a href="#ecommerce">E-commerce</a>
+        <a href="#seo">Référencement SEO</a>
+        <a href="#formation">Formation</a>
+      </div>
+      <div class="footer-col">
+        <h4>Organisation</h4>
+        <a href="#">À propos</a>
+        <a href="#">Notre équipe</a>
+        <a href="#">Nos solutions</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="tel:+221772213677">📞 77 221 36 77</a>
+        <a href="mailto:s.dia1317@gmail.com">✉️ s.dia1317@gmail.com</a>
+        <a href="#">🌐 soppaldigital.sn</a>
+        <a href="#">📍 Dakar, Sénégal</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 SoppalDigital · Tous droits réservés · Dakar, Sénégal</div>
+      <div class="footer-rs">
+        <a class="rs-link" href="#">in</a>
+        <a class="rs-link" href="#">𝕏</a>
+        <a class="rs-link" href="#">f</a>
+        <a class="rs-link" href="#">▶</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleFaq(btn){
+  const item=btn.closest('.faq-item');
+  const wasOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+  if(!wasOpen) item.classList.add('open');
+}
+// Header shrink on scroll
+const header=document.querySelector('header');
+window.addEventListener('scroll',()=>{
+  header.style.background=window.scrollY>20?'rgba(15,32,68,0.99)':'rgba(15,32,68,0.97)';
+});
+// Smooth anchor pills
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}
+  });
+});
+</script>
+</body>
+</html>
